@@ -14,6 +14,9 @@ Initial goal:
             YAML
     Setup EVE-NG-Pro
         Setup Cisco C9000v in EVE-NG
+            Load qcow2 images to EVE for 
+        Setup eve-backup-manager
+        Setup SFTP Server to host Backups
 
 Setup VSCode
 winget install Microsoft.VisualStudioCode
