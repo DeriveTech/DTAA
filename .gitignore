@@ -1,1 +1,23 @@
+# dot files and directories
+.git
+.gitignore
+.vscode
+.cache
+.resources
+.*
+
+# Environments
+.env
+env/
+ENV/
+
+# macOS Files
+.DS_Store
+
+# Python Virtual Environments
+Pipfile*
+.venv
 venv/
+
+# Incomplete
+*⚠*
