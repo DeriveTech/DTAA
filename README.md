@@ -1,7 +1,4 @@
-# vigilant-octo-spork1
-
-
-# Project Title
+# REAMME.md
 
 **Project Description**
 
@@ -13,16 +10,16 @@
 
 This repo is Yaroslav's first project. Don't use it for anything other than check on progress of learning.
 Initial goal:
-    Setup WSL
+-    Setup WSL
         Setup Python3 in WSL
-        Setup Pip in WSL
-        Setup Ansible in WSL
-    Setup VSCode
-        Install Plugin
-            WSL
-            Ansible
-            Python
-            YAML
+ --       Setup Pip in WSL
+   --     Setup Ansible in WSL
+-    Setup VSCode
+--        Install Plugin
+---            WSL
+---            Ansible
+---            Python
+---            YAML
     Setup EVE-NG-Pro
         Setup Cisco C9000v in EVE-NG
             Load qcow2 images to EVE for 
