@@ -6,6 +6,18 @@
 - Step 1
 - Step 2
 
+# Network Automation Tools
+
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![Build Status](https://img.shields.io/github/workflow/status/username/repo-name/CI)](https://github.com/username/repo-name/actions)
+
+A collection of scripts and playbooks for automating Cisco network infrastructure.
+## Table of Contents
+- [Installation](#installation)
+- [Usage](#usage)
+- [Features](#features)
+- [Contributing](#contributing)
+- [License](#license)
 
 
 This repo is Yaroslav's first project. Don't use it for anything other than check on progress of learning.
