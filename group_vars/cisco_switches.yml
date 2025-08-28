@@ -1,0 +1,17 @@
+---
+# Connection Settings
+ansible_connection: ansible.netcommon.network_cli
+ansible_network_os: cisco.ios.ios
+ansible_user: ansible
+ansible_become_password: "{{ vault_ansible_password }}"
+ansible_become: yes
+ansible_become_method: enable
+ansible_become_password: "{{ vault_ansible_become_password}}"
+
+#DNS and NTP Settings (Common to all switches)
+dns_servers:
+  - 8.8.8.8
+  - 8.8.4.4
+ntp_servers:
+  - 0.pool.ntp.org
+  - 1.pool.ntp.org

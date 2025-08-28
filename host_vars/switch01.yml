@@ -1,0 +1,3 @@
+---
+#Derive-specific hostname
+device_hostname: TEST_HOSTNAME_SW01

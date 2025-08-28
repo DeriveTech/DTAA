@@ -1,0 +1,23 @@
+---
+- name: Change hostname
+  hosts: cisco_switches
+  gather_facts: false
+
+  tasks:
+    - name: Set hostname on Cisco IOS Switch
+      cisco.ios.ios_hostname:
+        lines:
+          - hostname {{ device_hostname }}
+        state: merged
+      register: hostname_result
+
+    - name: Display hostname change result
+      debug:
+        var: hostname_result
+        msg: "Hostname changed to {{ device_hostname }} on {{ inventory_hostname }}"
+        when: hostname_result.changed
+        
+    - name: Save configuration if hostname changed
+      cisco.ios.ios_config:
+        save_when: modified
+      when: hostname_result.changed
