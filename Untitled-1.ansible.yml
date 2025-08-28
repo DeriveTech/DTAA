@@ -1,0 +1,21 @@
+---
+Playbook: Pull interfaces from network devices
+- name: Gather interface information from network devices
+  hosts: network_devices
+  gather_facts: yes
+  tasks:
+    - name: Collect interface details
+      ansible.netcommon.cli_command:
+        command: show interfaces
+      register: interface_output 
+    - name: Display interface information
+      debug:
+        var: interface_output.stdout_lines  
+  - name: Save interface details to a file
+    hosts: localhost
+    tasks:
+      - name: Write interface details to a file
+        copy:   
+          content: "{{ hostvars[item].interface_output.stdout }}"
+          dest: "/path/to/save/{{ item }}_interfaces.txt"
+        loop: "{{ groups['network_devices'] }}"
