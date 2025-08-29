@@ -21,3 +21,5 @@ Playbook: Pull interfaces from network devices
         loop: "{{ groups['network_devices'] }}"
 
         
+
+        
