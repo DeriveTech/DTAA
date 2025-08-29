@@ -19,3 +19,4 @@ Playbook: Pull interfaces from network devices
           content: "{{ hostvars[item].interface_output.stdout }}"
           dest: "/path/to/save/{{ item }}_interfaces.txt"
         loop: "{{ groups['network_devices'] }}"
+        
