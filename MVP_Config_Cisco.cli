@@ -1,0 +1,30 @@
+! Configure hostname (required for RSA key generation)
+hostname YOUR-SWITCH-NAME
+! Configure domain name (required for RSA key generation)
+ip domain-name dubnium.net
+! Enable DNS lookups (enabled by default but good to be explicit)
+ip domain-lookup
+! Configure DNS name servers (replace with your actual DNS servers)
+ip name-server 8.8.8.8 8.8.4.4
+! Configure enable secret password for privileged mode
+enable secret Cisco123
+! Enable password encryption service
+service password-encryption
+! Configure NTP (replace with your NTP server)
+ntp server pfsense.pool.ntp.org
+! Create local user account
+username ansible privilege 15 secret cisco123
+! Generate RSA keys (minimum 2048 bits for SSH v2)
+crypto key generate rsa modulus 2048
+! Configure SSH version 2 for security
+ip ssh version 2
+! Optional SSH security settings
+ip ssh time-out 60
+ip ssh authentication-retries 3
+! Configure VTY lines for SSH access
+line vty 0 15
+ transport input ssh
+ login local
+ exec-timeout 5 0
+! Save configuration
+copy running-config startup-config

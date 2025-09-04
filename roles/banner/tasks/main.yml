@@ -1,0 +1,30 @@
+---
+- name: Configure banner on Cisco devices
+  hosts: cisco_devices
+  gather_facts: false
+
+  vars:
+    banner_motd: |
+      ******************************************
+      AUTHORIZED ACCESS ONLY
+      This system is restricted to authorized users.
+      All activities are logged and monitored.
+      Unauthorized access will be prosecuted.
+      ******************************************
+
+  tasks:
+    - name: Configure MOTD banner
+      cisco.ios.ios_banner:
+        banner: motd
+        text: "{{ banner_motd }}"
+        state: present
+
+    - name: Configure login banner
+      cisco.ios.ios_banner:
+        banner: login
+        text: "{{ banner_motd }}"
+        state: present
+
+    - name: Save running config
+      cisco.ios.ios_config:
+        save_when: modified
