@@ -1,11 +1,23 @@
+! Get into enable moce from a blank config device
+enable
+
+! Get into config mode from a blank config device
+conf t
+
 ! Configure hostname (required for RSA key generation)
 hostname labswitch1
 
 ! Configure domain name (required for RSA key generation)
+! Command for IOS
 ip domain-name dubnium.net
+! Alternate Command for IOS XE
+ip domain name dubnium.net
 
 ! Enable DNS lookups (enabled by default but good to be explicit)
+! Command for IOS
 ip domain-lookup
+! Alternate Command for IOS XE
+ip domain lookup
 
 ! Configure DNS name servers (replace with your actual DNS servers)
 ip name-server 10.225.110.6
@@ -38,5 +50,7 @@ line vty 0 15
  login local
  exec-timeout 5 0
 
-! Save configuration
-copy running-config startup-config
+! Save configuration from config mode
+do wr me
+! Exit config mode
+end

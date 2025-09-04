@@ -1,0 +1,6 @@
+---
+- name: Configure VTP
+  ios_config:
+    lines:
+      - vtp mode transparent
+      - vtp domain mydomain
