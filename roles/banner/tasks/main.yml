@@ -1,6 +1,6 @@
 ---
 - name: Configure banner on Cisco devices
-  hosts: cisco_devices
+  hosts: all
   gather_facts: false
 
   vars:
