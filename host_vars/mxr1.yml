@@ -1,0 +1,9 @@
+---
+hostname: mxr1
+os: junos
+snmp_servers:
+  - 10.225.110.200
+  - 10.225.110.201
+users:
+  admin: admin123
+  user1: user123

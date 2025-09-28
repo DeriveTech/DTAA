@@ -1,0 +1,13 @@
+---
+
+os: junos
+
+snmp_servers:
+  - 10.225.110.200
+  - 10.225.110.201 
+users:
+  admin: JUNOS_admin123
+  user1: JUNOS_user123
+
+
+

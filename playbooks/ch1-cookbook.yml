@@ -2,6 +2,9 @@
 - name: Initial Playbook from Chapter 1 of Cookbook
   hosts: all
   gather_facts: no
+  vars_files:
+    - ../group_vars/{{ group_names[0] }}.yml
+    - ../host_vars/{{ inventory_hostname }}.yml
   tasks:
     - name: Display hostname
       ansible.builtin.debug:
@@ -9,8 +12,13 @@
  
     - name: Run for Cisco Nodes Only
       ansible.builtin.debug:
-        msg: "Router name is {{ hostname }}"
+        msg: "Router name is {{ hostname }} in {{ group_names[0] }} group"
       when: "'cisco' in group_names"
+
+    - name: Run for Juniper Nodes Only
+      ansible.builtin.debug:
+        msg: "Router name is {{ hostname }} in {{ group_names[0] }} group"
+      when: "'juniper' in group_names"
 
     - name: Loop over SNMP Servers
       ansible.builtin.debug:
