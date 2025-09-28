@@ -6,3 +6,18 @@
     - name: Display hostname
       ansible.builtin.debug:
         msg: "The hostname of this device is {{ hostname }} and it runs {{ os }}"
+ 
+    - name: Run for Cisco Nodes Only
+      ansible.builtin.debug:
+        msg: "Router name is {{ hostname }}"
+      when: "'cisco' in group_names"
+
+    - name: Loop over SNMP Servers
+      ansible.builtin.debug:
+        msg: "Configuring SNMP for {{ hostname }} with snmp server {{ item }}"
+      loop: "{{ snmp_servers }}"
+
+    - name: Loop over Users
+      ansible.builtin.debug:
+        msg: "Creating user {{ item.key }} with password {{ item.value }} on {{ hostname }}"
+      with_dict: "{{ users }}"
