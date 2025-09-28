@@ -1,0 +1,8 @@
+---
+- name: Initial Playbook from Chapter 1 of Cookbook
+  hosts: all
+  gather_facts: no
+  tasks:
+    - name: Display hostname
+      ansible.builtin.debug:
+        msg: "The hostname of this device is {{ hostname }} and it runs {{ os }}"
