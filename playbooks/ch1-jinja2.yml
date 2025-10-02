@@ -1,0 +1,27 @@
+---
+  -  name: Generate Cisco Config from Junos Template
+     hosts: localhost
+     gather_facts: false
+     tasks:
+      - name: Create Configs Directory
+        file: path=../configs/ state=directory
+
+  - name: Generate Cisco Config from Jinja2
+    hosts: cisco
+    gather_facts: false
+    tasks:
+      - name: Generate Cisco Basic Config
+        ansible.builtin.template:
+          src: ../templates/ios_basic.j2
+          dest: ../configs/{{ inventory_hostname }}.cfg
+          delegate_to: localhost
+ 
+  - name: Generate Juniper Config from Jinja2
+    hosts: juniper
+    gather_facts: false
+    tasks:
+      - name: Generate Juniper Basic Config
+        ansible.builtin.template:
+          src: ../templates/junos_basic.j2
+          dest: ../configs/{{ inventory_hostname }}.cfg
+          delegate_to: localhost
